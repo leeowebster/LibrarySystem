@@ -7,7 +7,7 @@ using LibrarySystem.Domain.Interfaces;
 
 namespace LibrarySystem.Application.Interfaces
 {
-    internal interface IBorrowService
+    public interface IBorrowService
     {
         void ReturnBook(
             IBookRepository BookRepo,

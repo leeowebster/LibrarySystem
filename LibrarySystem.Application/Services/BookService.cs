@@ -10,7 +10,7 @@ using LibrarySystem.Domain.Models;
 
 namespace LibrarySystem.Application.Services
 {
-    internal class BookService : IBookService
+    public class BookService : IBookService
     {
 
         private readonly IBookRepository _bookRepository;
@@ -27,16 +27,29 @@ namespace LibrarySystem.Application.Services
         public void AddBook(BookCreate NewBook)
         {
 
-            var book = new BookCreate(NewBook.Author, NewBook.Title, NewBook.DatePublished);
-            
+            var book = new Books()
+            {
+                Author = NewBook.Author,
+                Title = NewBook.Title,
+                DatePublished = NewBook.DatePublished,
+                IsAvailable = true
+            };
 
             _bookRepository.Add(book);
         }
 
-        public IEnumerable<Books> GetAllBooks()
+        public IEnumerable<AvailableBooksDTO> GetAvailableBooks()
         {
-            var books = _bookRepository.GetAll();
-            return books;
+            var AvailableBooks = _bookRepository.GetAvailableBooks();
+            
+            var BookDTO = AvailableBooks.Select(b => new AvailableBooksDTO
+            {
+                Id = b.Id,
+                Author = b.Author,
+                Title = b.Title
+            });
+
+            return BookDTO;
         }
 
 

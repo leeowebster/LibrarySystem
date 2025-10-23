@@ -7,7 +7,7 @@ using LibrarySystem.Domain.Interfaces;
 
 namespace LibrarySystem.Application.Interfaces
 {
-    internal interface IPeopleService
+    public interface IPeopleService
     {
         void RegisterPerson(string Name, string Email);
 

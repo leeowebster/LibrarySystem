@@ -2,7 +2,7 @@
 {
     public interface IBookRepository
     {
-        void Add(BookCreate bookCreate);
+        void Add(Books book);
         Books GetById(int id);
         void Update(int id);
         IEnumerable<Books> GetAll();

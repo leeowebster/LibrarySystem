@@ -10,7 +10,7 @@ using LibrarySystem.Domain.Models;
 
 namespace LibrarySystem.Application.Services
 {
-    internal class PeopleService : IPeopleService
+    public class PeopleService : IPeopleService
     {
 
         private readonly IBookRepository _bookRepository;

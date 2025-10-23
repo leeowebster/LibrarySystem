@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace LibrarySystem.Application.DTOs
 {
-    public class BookCreate
+    public class AvailableBooksDTO
     {
-        public string Author { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
-        public DateTime DatePublished { get; set; }
-        public bool IsAvailable { get; set; } = true;
-
+        public string Author { get; set; }
     }
 }

@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibrarySystem.Application.DTOs;
 using LibrarySystem.Domain.Interfaces;
 using LibrarySystem.Domain.Models;
 
 namespace LibrarySystem.Application.Interfaces
 {
-    internal interface IBookService
+    public interface IBookService
     {
-        void AddBook(string Author, string Title, DateTime DatePublished);
+        void AddBook(BookCreate NewBook);
 
-        IEnumerable<Books> GetAllBooks();
+        public IEnumerable<AvailableBooksDTO> GetAvailableBooks();
 
 
 
