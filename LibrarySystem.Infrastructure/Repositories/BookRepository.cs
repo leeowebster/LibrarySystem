@@ -1,7 +1,7 @@
 ﻿using LibrarySystem.Domain.Models;
 using LibrarySystem.Domain.Interfaces;
 
-namespace LibrarySystem.Infrastructure.Services
+namespace LibrarySystem.Infrastructure.Repositories
 {
     public class BookRepository : IBookRepository
     {
@@ -54,6 +54,13 @@ namespace LibrarySystem.Infrastructure.Services
         {
             var book = _context.Books.Where(x => x.IsAvailable == true).ToList();
             return book;
+        }
+
+        public Books GetBookById(int bookId)
+        {
+            var book = _context.Books.FirstOrDefault(x => x.Id == bookId);
+            return book;
+
         }
     }
 }

@@ -52,6 +52,18 @@ namespace LibrarySystem.Application.Services
             return BookDTO;
         }
 
+        public BookDTO GetBookById(int id)
+        {
+            var InternalBook = _bookRepository.GetById(id);
+            var OutputBook = new BookDTO
+            {
+                Title = InternalBook.Title,
+                Author = InternalBook.Author,
+                BookId = InternalBook.Id
+            };
+            return OutputBook;
+        }
+
 
 
     }

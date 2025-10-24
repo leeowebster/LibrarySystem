@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibrarySystem.Application.DTOs;
 using LibrarySystem.Domain.Interfaces;
 
 namespace LibrarySystem.Application.Interfaces
 {
     public interface IBorrowService
     {
-        void ReturnBook(
-            IBookRepository BookRepo,
-            IBorrowRepository BorrowRepo);
+        
+        void Borrow(BorrowDTO dto);
 
+        void ReturnBook(BorrowID Borrow);
 
     }
 }

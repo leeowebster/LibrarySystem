@@ -1,6 +1,40 @@
-@LibrarySystem.WebAPI_HostAddress = http://localhost:5238
+@rootURL = http://localhost:5238
 
-GET {{LibrarySystem.WebAPI_HostAddress}}/weatherforecast/
+GET {{rootURL}}/weatherforecast/
 Accept: application/json
 
 ###
+GET {{rootURL}}/api/books/AllBooks
+Accept: application/json
+
+###
+
+POST {{rootURL}}/api/Books/AddBook
+Content-Type: application/json
+{
+    "Title": "O Pequeno Príncipe",
+    "Author": "Antoine de Saint-Exupery",
+    "DatePublished": "1943-04-06T00:00:00"
+}
+
+###
+POST {{rootURL}}/api/Books/Borrow
+Content-Type: application/json
+{
+    "BookId": 1,
+    "PersonId":3 
+}
+###
+POST {{rootURL}}/api/Books/Return
+Content-Type: application/json
+{
+    "id": 6111
+}
+###
+GET {{rootURL}}/api/Report/BorrowedBooks
+Accept: application/json
+
+###
+GET {{rootURL}}/api/Report/DelayedBorrows
+Accept: application/json
+

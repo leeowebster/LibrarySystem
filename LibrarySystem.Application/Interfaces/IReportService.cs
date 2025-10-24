@@ -4,21 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibrarySystem.Application.DTOs;
-using LibrarySystem.Domain.Interfaces;
 using LibrarySystem.Domain.Models;
 
 namespace LibrarySystem.Application.Interfaces
 {
-    public interface IBookService
+    public interface IReportService
     {
-        void AddBook(BookCreate NewBook);
-
-        public IEnumerable<AvailableBooksDTO> GetAvailableBooks();
-
-        public BookDTO GetBookById(int id);
-
-        
-
+        IEnumerable<PersonLoanDTO> ActiveBorrows();
+        IEnumerable<BorrowDTO> DelayedBorrows();
 
     }
 }

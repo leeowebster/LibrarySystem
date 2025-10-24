@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using LibrarySystem.Application.DTOs;
 using LibrarySystem.Application.Interfaces;
 using LibrarySystem.Domain.Interfaces;
 using LibrarySystem.Domain.Models;
@@ -24,14 +25,28 @@ namespace LibrarySystem.Application.Services
             _borrowRepository = borrowRepository;
         }
 
-        public void RegisterPerson(string Name, string Email)
+        public void RegisterPerson(PersonDTO NewPerson)
         {
-            People person = new People()
+            People person = new()
             {
-                Name = Name,
-                Email = Email
+                Name = NewPerson.Name,
+                Email = NewPerson.Email
             };
+            if(ValidateDuplicateEmail(person.Email) == true)
+            {
+                throw new Exception("Email already registered.");
+            }
+
             _peopleRepository.Add(person);
         }
+
+
+        internal bool ValidateDuplicateEmail(string email)
+        {
+            var allPeople = _peopleRepository.GetAll();
+            return allPeople.Any(p => p.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+        }
+
+
     }
 }

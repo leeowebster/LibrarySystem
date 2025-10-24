@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Desafio_1.Data;
 using LibrarySystem.Domain.Models;
 using LibrarySystem.Domain.Interfaces;
 
-namespace LibrarySystem.Infrastructure.Services
+namespace LibrarySystem.Infrastructure.Repositories
 {
     public class PeopleRepository : IPeopleRepository
     {
@@ -35,6 +34,8 @@ namespace LibrarySystem.Infrastructure.Services
             var person = _context.People.FirstOrDefault(x => x.Id == id);
             return person;
         }
+
+        
 
         public void Update(People people)
         {

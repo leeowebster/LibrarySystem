@@ -9,12 +9,13 @@ namespace LibrarySystem.Domain.Interfaces
 
         List<Borrow> DelayedBorrows();
 
-        List<(People person, List<Borrow> Loans)> PersonAndBooks();
+        List<(People person, List<Borrow> Loans)> PeopleAndBooks();
 
         bool IsBorrowed(int bookid);
         bool IsDelayed(int bookid);
 
         Borrow GetBorrowByBookId(int bookId);
+        Borrow GetBorrowById(int id);
 
     }
 }

@@ -7,6 +7,7 @@
         void Update(int id);
         IEnumerable<Books> GetAll();
         List<Books> GetAvailableBooks();
+        public Books GetBookById(int bookId);
     }
 
     

@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LibrarySystem.Application.DTOs;
 using LibrarySystem.Domain.Interfaces;
 
 namespace LibrarySystem.Application.Interfaces
 {
     public interface IPeopleService
     {
-        void RegisterPerson(string Name, string Email);
-
+        public void RegisterPerson(PersonDTO NewPerson);
 
     }
 }

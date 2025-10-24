@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 
 namespace LibrarySystem.Application.DTOs
 {
-    public class AvailableBooksDTO
+    public class BorrowDTO
     {
         public int Id { get; set; }
+        [Required]
+        public int? BookId { get; set; }
 
-        public string Title { get; set; } = "No Book available";
-        
-        public string Author { get; set; } = "";
+        [Required]
+        public int? PersonId { get; set; }
     }
 }

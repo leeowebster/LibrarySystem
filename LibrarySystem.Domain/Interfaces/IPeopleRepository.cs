@@ -7,6 +7,6 @@ namespace LibrarySystem.Domain.Interfaces
         People GetById(int id);
         void Update(People people);
         IEnumerable<People> GetAll();
-
+        
     }
 }

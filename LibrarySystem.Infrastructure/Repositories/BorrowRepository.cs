@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using LibrarySystem.Domain.Models;
 using LibrarySystem.Domain.Interfaces;
-using Microsoft.Extensions.Hosting;
 
-namespace LibrarySystem.Infrastructure.Services
+
+namespace LibrarySystem.Infrastructure.Repositories
 {
     public class BorrowRepository : IBorrowRepository
     {
@@ -44,13 +44,12 @@ namespace LibrarySystem.Infrastructure.Services
 
         public void Return(Borrow borrow, Books book)
         {
-            var borrows = _dbContext.Borrows.FirstOrDefault(b => b.BookId == book.Id && b.DateReturned == null);
             borrow.DateReturned = DateTime.Now;
             book.IsAvailable = true;
             _dbContext.SaveChanges();
         }
 
-        public List<(People person, List<Borrow> Loans)> PersonAndBooks()
+        public List<(People person, List<Borrow> Loans)> PeopleAndBooks()
         {
             var query = _dbContext.People
             .GroupJoin(
@@ -75,6 +74,11 @@ namespace LibrarySystem.Infrastructure.Services
        public Borrow GetBorrowByBookId(int bookId)
         {
             return _dbContext.Borrows.FirstOrDefault(b => b.BookId == bookId && b.DateReturned == null);
+        }
+
+        public Borrow GetBorrowById(int id)
+        {
+            return _dbContext.Borrows.FirstOrDefault(b => b.Id == id);
         }
 
     }
