@@ -1,7 +1,7 @@
 ﻿using LibrarySystem.Domain.Models;
 using LibrarySystem.Domain.Interfaces;
 
-namespace LibrarySystem.Infrastructure.Services
+namespace LibrarySystem.Infrastructure.Repositories
 {
     public class BookRepository : IBookRepository
     {

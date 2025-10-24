@@ -8,7 +8,7 @@ using LibrarySystem.Domain.Models;
 using LibrarySystem.Domain.Interfaces;
 using Microsoft.Extensions.Hosting;
 
-namespace LibrarySystem.Infrastructure.Services
+namespace LibrarySystem.Infrastructure.Repositories
 {
     public class BorrowRepository : IBorrowRepository
     {

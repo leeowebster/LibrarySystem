@@ -17,18 +17,6 @@ namespace LibrarySystem.Infrastructure
         public virtual DbSet<People> People { get; set; }
         public virtual DbSet<Borrow> Borrows { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-        {
-            
-            {
-                var builder = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json");
-                var config = builder.Build();
-
-                options.UseSqlServer(config.GetConnectionString("DefaultConnection"));
-            }
-        }
 
 
     }

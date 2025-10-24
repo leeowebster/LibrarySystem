@@ -7,7 +7,7 @@ using Desafio_1.Data;
 using LibrarySystem.Domain.Models;
 using LibrarySystem.Domain.Interfaces;
 
-namespace LibrarySystem.Infrastructure.Services
+namespace LibrarySystem.Infrastructure.Repositories
 {
     public class PeopleRepository : IPeopleRepository
     {
