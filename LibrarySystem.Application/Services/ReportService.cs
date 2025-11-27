@@ -19,21 +19,21 @@ namespace LibrarySystem.Application.Services
             _borrowRepository = borrowRepository;
         }
 
-        public IEnumerable<PersonLoanDTO> ActiveBorrows()
+        public IEnumerable<(People, List<Borrow>)> ActiveBorrows()
         {
             var domainData = _borrowRepository.PeopleAndBooks();
 
-            var resultDTO = domainData.Where(b => b.Loans.Any()).
-                Select(pd => new PersonLoanDTO
-                {
-                    PersonId = pd.person.Id,
-                    Name = pd.person.Name,
-                    Email = pd.person.Email,
-                    LoanCount = pd.Loans.Count()
-                }
-                    
-                ).ToList();
-            return resultDTO;
+            //var resultDTO = domainData.Where(b => b.Loans.Any()).
+            //    Select(pd => new PersonLoanDTO
+            //    {
+            //        PersonId = pd.person.Id,
+            //        Name = pd.person.Name,
+            //        Email = pd.person.Email,
+            //        LoanCount = pd.Loans.Count()
+            //    }
+
+            //    ).ToList();
+            return domainData;
         }
 
         

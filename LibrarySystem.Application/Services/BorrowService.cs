@@ -37,11 +37,22 @@ namespace LibrarySystem.Application.Services
                 throw new InvalidOperationException("Person does not exist.");
             }
 
+            if(_borrowRepository.GetBorrowCount(dto.PersonId.Value) >= 3)
+            {
+                throw new InvalidOperationException("Person has 3 books. Return one before borrowing another.");
+            }
+
             if (!book.IsAvailable)
             {
-                throw new InvalidOperationException("Book is not available or person does not exist.");
+                throw new InvalidOperationException("Book is not available.");
             }
                 _borrowRepository.Borrow(book, person);
+        }
+
+        public int getBorrowCount(int personId)
+        {
+            var count = _borrowRepository.GetBorrowCount(personId);
+            return count;
         }
 
         public void ReturnBook(BorrowID Borrow)
@@ -59,7 +70,6 @@ namespace LibrarySystem.Application.Services
                 throw new InvalidOperationException("This book has already been returned.");
             }
             _borrowRepository.Return(BorrowEntity, BookEntity);
-
         }
 
         public int GetBorrowById(BorrowID borrow)
@@ -71,6 +81,7 @@ namespace LibrarySystem.Application.Services
             }
             return borrowRecord.Id;
         }
+
 
         
 

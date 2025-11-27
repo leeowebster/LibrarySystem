@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LibrarySystem.Application.DTOs;
-using LibrarySystem.Domain.Models;
 
 namespace LibrarySystem.Application.Interfaces
 {
-    public interface IReportService
+    public interface IExternalBookService
     {
-        IEnumerable<(People, List<Borrow>)> ActiveBorrows();
-        IEnumerable<BorrowDTO> DelayedBorrows();
+        Task<BookDTO> GetBookDetailsFromExternalAPI(string isbn);
 
     }
 }

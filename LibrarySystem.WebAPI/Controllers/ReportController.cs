@@ -19,10 +19,15 @@ namespace LibrarySystem.WebAPI.Controllers
 
         // GET: api/<ReportController>/BorrowedBooks
         [HttpGet("BorrowedBooks")]
-        public ActionResult<IEnumerable<(People, List<Borrow>)>> Get()
+        public IActionResult Get()
         {
             var borrowedBooks = _reportService.ActiveBorrows();
-            return Ok(borrowedBooks);
+            var (a, b) = borrowedBooks.FirstOrDefault();
+
+            return Ok(new
+            {
+                a,b
+            });
         }
 
 

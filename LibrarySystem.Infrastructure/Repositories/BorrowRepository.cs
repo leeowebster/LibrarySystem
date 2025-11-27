@@ -81,5 +81,13 @@ namespace LibrarySystem.Infrastructure.Repositories
             return _dbContext.Borrows.FirstOrDefault(b => b.Id == id);
         }
 
+        public int GetBorrowCount(int personId)
+        {
+            var query = _dbContext.Borrows
+                .Where(b => b.PeopleID == personId && b.DateReturned == null)
+                .Count();
+
+            return query;
+        }
     }
 }

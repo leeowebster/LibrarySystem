@@ -15,5 +15,6 @@ namespace LibrarySystem.Domain.Models
 
         public DateTime DateBorrowed { get; set; }
         public DateTime? DateReturned { get; set; }
+
     }
 }

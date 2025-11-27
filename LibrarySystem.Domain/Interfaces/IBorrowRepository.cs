@@ -17,5 +17,7 @@ namespace LibrarySystem.Domain.Interfaces
         Borrow GetBorrowByBookId(int bookId);
         Borrow GetBorrowById(int id);
 
+        int GetBorrowCount(int personId);
+
     }
 }
